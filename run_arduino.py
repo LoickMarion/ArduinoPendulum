@@ -25,7 +25,7 @@ with open('sensor_data.csv', mode='w', newline='') as file:
 
     # Initialize counter
     data_count = 0
-    max_data_points = 100  # Set the desired number of data points to collect
+    max_data_points = 800  # Set the desired number of data points to collect
 
     # Continuously read serial data and write to CSV
     while data_count < max_data_points:
@@ -39,9 +39,10 @@ with open('sensor_data.csv', mode='w', newline='') as file:
             print(f"Data split into values: {values}")  # Debugging line
             
             # Write to CSV file
-            writer.writerow(values)
-            file.flush()  # Force the data to be written to the file immediately
-            data_count += 1  # Increment the data count
+            if(values[0] != values[1]):
+                writer.writerow(values)
+                file.flush()  # Force the data to be written to the file immediately
+                data_count += 1  # Increment the data count
             
             # Print count every 25 data points
             if data_count % 25 == 0:
