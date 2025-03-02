@@ -25,7 +25,7 @@ with open('sensor_data.csv', mode='w', newline='') as file:
 
     # Initialize counter
     data_count = 0
-    max_data_points = 800  # Set the desired number of data points to collect
+    max_data_points = 1200  # Set the desired number of data points to collect
 
     # Continuously read serial data and write to CSV
     while data_count < max_data_points:
